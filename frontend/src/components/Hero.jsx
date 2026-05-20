@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Scene3D from "./Scene3D";
 
 export default function Hero() {
@@ -74,10 +75,10 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.6 }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
-          <a href="/games/nfg-crash" data-testid="hero-cta-play" className="btn-neon">
+          <Link to="/games/nfg-crash" data-testid="hero-cta-play" className="btn-neon">
             ► Explore NFG Crash
-          </a>
-          <a href="#games" data-testid="hero-cta-arsenal" className="btn-ghost">
+          </Link>
+          <a href="/#games" data-testid="hero-cta-arsenal" className="btn-ghost">
             ◇ View Game Suite
           </a>
         </motion.div>

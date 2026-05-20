@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { GAMES } from "./games";
 import CrashGraph from "./animations/CrashGraph";
 
@@ -70,17 +71,13 @@ export default function FeaturedGame() {
             </ul>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="/games/nfg-crash"
-                data-testid="featured-cta-play"
-                className="btn-neon"
-              >
+              <Link to="/games/nfg-crash" data-testid="featured-cta-play" className="btn-neon">
                 ► See Game Details
-              </a>
-              <a href="#install" data-testid="featured-cta-install" className="btn-ghost">
+              </Link>
+              <a href="/#install" data-testid="featured-cta-install" className="btn-ghost">
                 ◇ Install on iPhone
               </a>
-              <a href="#leaderboard" data-testid="featured-cta-leaderboard" className="btn-ghost">
+              <a href="/#leaderboard" data-testid="featured-cta-leaderboard" className="btn-ghost">
                 ◇ Leaderboard
               </a>
             </div>

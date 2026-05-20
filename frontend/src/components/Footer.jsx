@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -47,10 +48,28 @@ export default function Footer() {
         </div>
 
         <div>
-          <div className="label-tag">// Legal</div>
+          <div className="label-tag">// Navigation</div>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><a href="/privacy" className="text-zinc-300 hover:text-cyan-300" data-testid="footer-privacy">Privacy Policy</a></li>
-            <li><a href="/legal" className="text-zinc-300 hover:text-cyan-300" data-testid="footer-legal">Legal &amp; Compliance</a></li>
+            <li>
+              <Link to="/games/nfg-crash" className="text-zinc-300 hover:text-fuchsia-300">
+                NFG Crash
+              </Link>
+            </li>
+            <li>
+              <Link to="/sideload" className="text-zinc-300 hover:text-fuchsia-300">
+                Install on iPhone
+              </Link>
+            </li>
+            <li>
+              <Link to="/privacy" className="text-zinc-300 hover:text-fuchsia-300">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="/legal" className="text-zinc-300 hover:text-fuchsia-300">
+                Legal & Compliance
+              </Link>
+            </li>
             <li><span className="text-zinc-500">Game Terms</span></li>
           </ul>
         </div>

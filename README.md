@@ -49,9 +49,9 @@ uvicorn server:app --reload --port 8001
 ### 2. Frontend
 ```bash
 cd frontend
-yarn install
+corepack yarn install
 cp .env.example .env                # then set REACT_APP_BACKEND_URL=http://localhost:8001
-yarn start
+corepack yarn start
 ```
 
 Open http://localhost:3000
@@ -105,10 +105,27 @@ DELETE {BACKEND_URL}/api/leaderboard/{id}
 
 ```bash
 cd frontend
-yarn build           # outputs /frontend/build
+corepack yarn build           # outputs /frontend/build
 ```
 
 Serve `/frontend/build` from any static host (Vercel, Netlify, Cloudflare Pages, Nginx) and point it at your hosted FastAPI backend via the `REACT_APP_BACKEND_URL` env at build time.
+
+## Routes Added
+
+- `/games/nfg-crash`
+- `/games/nfg-wordwich`
+- `/games/nfg-wordwheel`
+- `/games/nfg-hangman`
+- `/sideload`
+- `/privacy`
+- `/legal`
+
+## Deployment Presets
+
+- Frontend Vercel config: `frontend/vercel.json`
+- Backend Render config: `render.yaml`
+
+Set `REACT_APP_BACKEND_URL` on Vercel to your deployed backend URL before building.
 
 ## License
 Private — all rights reserved by y666suf.

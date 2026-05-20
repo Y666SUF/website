@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { GAMES } from "./games";
 import CrashGraph from "./animations/CrashGraph";
 import WordwichTiles from "./animations/WordwichTiles";
@@ -50,9 +51,8 @@ export default function GamesGrid() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-7 auto-rows-[260px] md:auto-rows-[280px]">
           {GAMES.map((g, i) => (
-            <motion.a
+            <motion.div
               key={g.id}
-              href={g.href || "#live"}
               custom={i}
               variants={cardVariants}
               initial="hidden"
@@ -99,6 +99,8 @@ export default function GamesGrid() {
               </div>
 
               {/* bottom content */}
+              <Link to={`/games/${g.slug}`} className="absolute inset-0 z-20" aria-label={`Open ${g.name}`} />
+
               <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 z-10">
                 <h3 className="font-display font-black uppercase text-2xl md:text-3xl text-white tracking-tight leading-none">
                   {g.name.split(" ").map((w, idx) => (
@@ -122,7 +124,7 @@ export default function GamesGrid() {
                   </span>
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,19 +1,32 @@
 import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const links = [
-  { href: "#featured", label: "NFG Crash" },
-  { href: "#games", label: "Game Suite" },
-  { href: "#install", label: "Install" },
-  { href: "#leaderboard", label: "Leaderboard" },
+  { href: "/games/nfg-crash", label: "NFG Crash" },
+  { href: "/#games", label: "Game Suite" },
+  { href: "/#install", label: "Install" },
+  { href: "/#leaderboard", label: "Leaderboard" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const id = location.hash.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 50);
+    }
+  }, [location.pathname, location.hash]);
 
   return (
     <header
@@ -28,8 +41,8 @@ export default function Navbar() {
         }`}
         style={{ transition: "all .35s ease" }}
       >
-        <a
-          href="#top"
+        <Link
+          to="/"
           data-testid="logo-link"
           className="flex items-center gap-3 group py-2"
         >
@@ -40,18 +53,18 @@ export default function Navbar() {
           <span className="font-display font-black text-white tracking-tight text-lg">
             Y666<span className="neon-text-cyan">.</span>SUF
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-1">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
+              to={l.href}
               data-testid={`nav-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
               className="px-4 py-2 rounded-full text-sm font-mono uppercase tracking-widest text-zinc-400 hover:text-cyan-300 hover:bg-cyan-400/5 transition-colors"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 

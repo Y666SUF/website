@@ -221,3 +221,39 @@ body {
 
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; }
+
+@keyframes crash-graph-cycle {
+    0% { stroke-dashoffset: 440; opacity: 0.9; }
+    65% { stroke-dashoffset: 0; opacity: 1; }
+    100% { stroke-dashoffset: -30; opacity: 0.85; }
+}
+.graph-curve {
+    stroke-dasharray: 440;
+    animation: crash-graph-cycle 2.4s linear infinite;
+}
+.graph-crash-dot {
+    animation: float-slow 1.4s ease-in-out infinite;
+}
+
+@keyframes tile-pop {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+    50% { transform: translateY(-5px) scale(1.05); opacity: 1; }
+}
+.word-tile {
+    animation: tile-pop 1.3s ease-in-out infinite;
+}
+
+@keyframes limb-fade {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+.hang-head,
+.hang-body,
+.hang-arm-left,
+.hang-arm-right {
+    animation: limb-fade 1.9s ease-in-out infinite;
+}
+
+.wordwheel-spin {
+    animation: spin-slow 4.5s linear infinite;
+}
