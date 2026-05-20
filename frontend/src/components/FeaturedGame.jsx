@@ -1,0 +1,98 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { GAMES } from "./games";
+
+export default function FeaturedGame() {
+  const game = GAMES[0]; // NFG Crash
+
+  return (
+    <section id="featured" data-testid="featured-section" className="relative py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="flex items-end justify-between mb-10 md:mb-14">
+          <div>
+            <span data-testid="featured-tag" className="label-tag">// LATEST RELEASE — 01</span>
+            <h2 className="font-display font-black uppercase text-4xl md:text-6xl tracking-tighter mt-3">
+              FEATURED <span className="neon-text-cyan">DROP</span>
+            </h2>
+          </div>
+          <span className="hidden md:block font-mono text-xs text-zinc-500">/ 04 GAMES IN ROTATION</span>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+          data-testid="featured-card"
+          className="relative grid md:grid-cols-12 gap-8 md:gap-10 items-center rounded-3xl border border-cyan-400/30 bg-gradient-to-br from-black via-[#080813] to-black p-6 md:p-10 overflow-hidden"
+          style={{ boxShadow: "0 0 60px -20px rgba(0,240,255,0.35), inset 0 0 0 1px rgba(0,240,255,0.08)" }}
+        >
+          <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full" style={{ background: "radial-gradient(closest-side, rgba(0,240,255,0.25), transparent)" }} />
+          <div className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full" style={{ background: "radial-gradient(closest-side, rgba(255,0,60,0.18), transparent)" }} />
+
+          <div className="md:col-span-7 relative">
+            <div className="relative aspect-[4/3] md:aspect-[16/11] rounded-2xl overflow-hidden border border-cyan-400/30 grain-overlay">
+              <img
+                src={game.image}
+                alt="NFG Crash artwork"
+                className="absolute inset-0 h-full w-full object-cover"
+                data-testid="featured-image"
+              />
+              <div className="absolute inset-0" style={{
+                background: "linear-gradient(135deg, transparent 40%, rgba(5,5,10,0.6))",
+              }} />
+              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+                  <span className="font-mono text-xs uppercase tracking-[0.3em] text-white">LIVE · 1,204 watching</span>
+                </div>
+                <span className="font-mono text-xs text-cyan-300">PEAK · 24.62x</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="md:col-span-5 relative">
+            <span className="label-tag text-fuchsia-400">// {game.tag}</span>
+            <h3 data-testid="featured-title" className="font-display font-black uppercase mt-3 text-4xl md:text-5xl leading-[0.95] tracking-tight">
+              NFG <span className="neon-text-cyan">CRASH</span>
+            </h3>
+            <p className="mt-5 text-zinc-300/90 max-w-md">
+              The multiplier climbs. The void watches. Pull out before it crashes — or
+              ride the curve into a leaderboard slot. Played live every night with the
+              chat as your co-pilot.
+            </p>
+
+            <ul className="mt-6 grid grid-cols-3 gap-3 font-mono text-xs">
+              <li className="rounded-lg border border-cyan-400/25 bg-black/60 p-3">
+                <div className="text-zinc-500 uppercase text-[0.6rem] tracking-widest">Players</div>
+                <div className="text-white text-lg font-semibold">12.4K</div>
+              </li>
+              <li className="rounded-lg border border-fuchsia-400/25 bg-black/60 p-3">
+                <div className="text-zinc-500 uppercase text-[0.6rem] tracking-widest">Peak Mult</div>
+                <div className="text-white text-lg font-semibold">24.62x</div>
+              </li>
+              <li className="rounded-lg border border-purple-400/25 bg-black/60 p-3">
+                <div className="text-zinc-500 uppercase text-[0.6rem] tracking-widest">Status</div>
+                <div className="text-emerald-300 text-lg font-semibold">LIVE</div>
+              </li>
+            </ul>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="https://www.tiktok.com/@y666.suf"
+                target="_blank" rel="noopener noreferrer"
+                data-testid="featured-cta-play"
+                className="btn-neon"
+              >
+                ► Play On Live
+              </a>
+              <a href="#leaderboard" data-testid="featured-cta-leaderboard" className="btn-ghost">
+                ◇ Leaderboard
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
