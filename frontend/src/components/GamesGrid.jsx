@@ -1,6 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { GAMES } from "./games";
+import CrashGraph from "./animations/CrashGraph";
+import WordwichTiles from "./animations/WordwichTiles";
+import HangmanAnim from "./animations/HangmanAnim";
+import WordwheelAnim from "./animations/WordwheelAnim";
+
+const ANIMATIONS = {
+  nfg_crash: CrashGraph,
+  nfg_wordwich: WordwichTiles,
+  nfg_hangman: HangmanAnim,
+  nfg_wordwheel: WordwheelAnim,
+};
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -51,15 +62,17 @@ export default function GamesGrid() {
               className={`tilt-card relative group rounded-2xl overflow-hidden border border-white/10 bg-black ${spans[i]}`}
               style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.04)` }}
             >
-              <img
-                src={g.image}
-                alt={g.name}
-                className="absolute inset-0 h-full w-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-              />
+              <div className="absolute inset-0">
+                {(() => {
+                  const Anim = ANIMATIONS[g.id];
+                  if (g.id === "nfg_crash") return <Anim variant="card" />;
+                  return Anim ? <Anim accent={g.accent} /> : null;
+                })()}
+              </div>
               {/* gradient overlay */}
-              <div className="absolute inset-0" style={{
+              <div className="absolute inset-0 pointer-events-none" style={{
                 background:
-                  "linear-gradient(180deg, rgba(5,5,10,0.1) 0%, rgba(5,5,10,0.4) 50%, rgba(5,5,10,0.95) 100%)",
+                  "linear-gradient(180deg, rgba(5,5,10,0) 0%, rgba(5,5,10,0.2) 50%, rgba(5,5,10,0.92) 100%)",
               }} />
               {/* corner ticks */}
               <div className="pointer-events-none absolute inset-0">

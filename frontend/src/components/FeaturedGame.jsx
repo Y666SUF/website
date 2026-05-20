@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { GAMES } from "./games";
+import CrashGraph from "./animations/CrashGraph";
 
 export default function FeaturedGame() {
   const game = GAMES[0]; // NFG Crash
@@ -31,23 +32,11 @@ export default function FeaturedGame() {
           <div className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full" style={{ background: "radial-gradient(closest-side, rgba(255,0,60,0.18), transparent)" }} />
 
           <div className="md:col-span-7 relative">
-            <div className="relative aspect-[4/3] md:aspect-[16/11] rounded-2xl overflow-hidden border border-cyan-400/30 grain-overlay">
-              <img
-                src={game.image}
-                alt="NFG Crash artwork"
-                className="absolute inset-0 h-full w-full object-cover"
-                data-testid="featured-image"
-              />
-              <div className="absolute inset-0" style={{
-                background: "linear-gradient(135deg, transparent 40%, rgba(5,5,10,0.6))",
+            <div className="relative aspect-[4/3] md:aspect-[16/11] rounded-2xl overflow-hidden border border-cyan-400/30 bg-black grain-overlay">
+              <CrashGraph variant="hero" />
+              <div className="absolute inset-0 pointer-events-none" style={{
+                background: "radial-gradient(ellipse at center, transparent 55%, rgba(5,5,10,0.6))",
               }} />
-              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-                  <span className="font-mono text-xs uppercase tracking-[0.3em] text-white">LIVE · 1,204 watching</span>
-                </div>
-                <span className="font-mono text-xs text-cyan-300">PEAK · 24.62x</span>
-              </div>
             </div>
           </div>
 
