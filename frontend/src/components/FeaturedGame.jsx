@@ -57,9 +57,12 @@ export default function FeaturedGame() {
               NFG <span className="neon-text-cyan">CRASH</span>
             </h3>
             <p className="mt-5 text-zinc-300/90 max-w-md">
-              The multiplier climbs. The void watches. Pull out before it crashes — or
-              ride the curve into a leaderboard slot. Played live every night with the
-              chat as your co-pilot.
+              Companion app for TikTok LIVE crash gameplay. Place virtual bets, claim
+              rewarded points, chat with the room and watch the leaderboard update in
+              real time. iPhone install available.
+            </p>
+            <p className="mt-2 text-xs text-zinc-500 max-w-md">
+              Virtual points only — no cash-out, no withdrawals, no real-money gambling.
             </p>
 
             <ul className="mt-6 grid grid-cols-3 gap-3 font-mono text-xs">
@@ -79,12 +82,14 @@ export default function FeaturedGame() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="https://www.tiktok.com/@y666.suf"
-                target="_blank" rel="noopener noreferrer"
+                href="/games/nfg-crash"
                 data-testid="featured-cta-play"
                 className="btn-neon"
               >
-                ► Play On Live
+                ► See Game Details
+              </a>
+              <a href="#install" data-testid="featured-cta-install" className="btn-ghost">
+                ◇ Install on iPhone
               </a>
               <a href="#leaderboard" data-testid="featured-cta-leaderboard" className="btn-ghost">
                 ◇ Leaderboard

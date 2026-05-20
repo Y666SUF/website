@@ -50,11 +50,11 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.25 }}
           data-testid="hero-title"
-          className="glitch font-display font-black uppercase mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-[8rem] leading-[0.92] tracking-tighter text-white max-w-5xl"
+          className="glitch font-display font-black uppercase mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-[0.92] tracking-tighter text-white max-w-5xl"
         >
-          PLAY THE <span className="neon-text-cyan">VOID</span>.
+          PLAY. <span className="neon-text-cyan">COMPETE</span>.
           <br />
-          BREAK THE <span className="neon-text-magenta">LOOP</span>.
+          FOLLOW EVERY ROUND <span className="neon-text-magenta">LIVE</span>.
         </motion.h1>
 
         <motion.p
@@ -63,9 +63,9 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.45 }}
           className="mt-6 max-w-xl text-zinc-300/90 text-base md:text-lg"
         >
-          A constellation of interactive mini-games engineered for TikTok Live.
-          Crash multipliers, sling words, dodge the hangman — all in a cosmic arcade
-          forged at the edge of the feed.
+          NFG Crash is a fast-paced companion game built for live audiences — shared
+          virtual points, real-time leaderboards and round-by-round action. Plus the full
+          arsenal: Wordwich, Hangman & Wordwheel.
         </motion.p>
 
         <motion.div
@@ -74,13 +74,23 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.6 }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
-          <a href="#featured" data-testid="hero-cta-play" className="btn-neon">
-            ► Enter NFG Crash
+          <a href="/games/nfg-crash" data-testid="hero-cta-play" className="btn-neon">
+            ► Explore NFG Crash
           </a>
           <a href="#games" data-testid="hero-cta-arsenal" className="btn-ghost">
-            ◇ View Arsenal
+            ◇ View Game Suite
           </a>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.9, delay: 0.85 }}
+          className="mt-6 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-zinc-500 max-w-xl"
+          data-testid="hero-compliance"
+        >
+          ▲ Virtual points only · No cash-out · No withdrawals · No real-money gambling
+        </motion.p>
 
         {/* Bottom strip */}
         <div className="absolute left-6 right-6 md:left-10 md:right-10 bottom-6 flex items-end justify-between text-xs font-mono text-zinc-500">

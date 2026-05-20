@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 
 const links = [
   { href: "#featured", label: "NFG Crash" },
-  { href: "#games", label: "Arsenal" },
+  { href: "#games", label: "Game Suite" },
+  { href: "#install", label: "Install" },
   { href: "#leaderboard", label: "Leaderboard" },
-  { href: "#live", label: "Live" },
 ];
 
 export default function Navbar() {

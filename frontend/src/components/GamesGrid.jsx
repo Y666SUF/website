@@ -41,7 +41,7 @@ export default function GamesGrid() {
           {GAMES.map((g, i) => (
             <motion.a
               key={g.id}
-              href="#live"
+              href={g.href || "#live"}
               custom={i}
               variants={cardVariants}
               initial="hidden"
@@ -100,7 +100,7 @@ export default function GamesGrid() {
                 <p className="mt-2 text-sm text-zinc-300/90 max-w-sm">{g.tagline}</p>
 
                 <div className="mt-4 flex items-center justify-between">
-                  <span className="font-mono text-xs text-zinc-500">→ PLAY ON @y666.suf</span>
+                  <span className="font-mono text-xs text-zinc-500">→ VIEW GAME DETAILS</span>
                   <span
                     className="inline-flex items-center justify-center h-9 w-9 rounded-full border transition-all group-hover:translate-x-1"
                     style={{ borderColor: `${g.accent}88`, color: g.accent }}
